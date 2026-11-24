@@ -3,8 +3,8 @@
 # SPDX-FileCopyrightText: 2026 Martin Jan Köhler and Harald Pretl
 # Johannes Kepler University, Institute for Integrated Circuits.
 #
-# This file is part of klayout-pex-plugin-elmer
-# (see https://github.com/iic-jku/klayout-pex-plugin-elmer).
+# This file is part of kpex-plugin-elmer
+# (see https://github.com/iic-jku/kpex-plugin-elmer).
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ from typing import Dict, List
 
 import pytest
 
-from klayout_pex import pex25d
+from kpex import pex25d
 
 
 def export(scene, tmp_path: Path, prefix: str = '', **options):
@@ -51,7 +51,7 @@ def sections(sif: str) -> Dict[str, List[str]]:
 
 def test_registered_as_exporter_plugin():
     info = pex25d.exporter_registry().get_info('elmer')
-    assert info.distribution == 'klayout-pex-plugin-elmer'
+    assert info.distribution == 'kpex-plugin-elmer'
     assert info.target == 'klayout_pex_plugins.elmer:create_exporter'
 
 
