@@ -1,18 +1,18 @@
-# klayout-pex-plugin-elmer
+# kpex-plugin-elmer
 
-[Elmer FEM](https://www.elmerfem.org) electrostatics cases from [KLayout-PEX](https://github.com/iic-jku/klayout-pex) PEX25D scenes: the capacitance matrix of every net, floating conductor and the ground plane, by FEM (StatElecSolver).
+[Elmer FEM](https://www.elmerfem.org) electrostatics cases from [KPEX](https://github.com/iic-jku/kpex) PEX25D scenes: the capacitance matrix of every net, floating conductor and the ground plane, by FEM (StatElecSolver).
 
 ## Usage
 
 ```bash
-pip install klayout-pex-plugin-elmer
+pip install kpex-plugin-elmer
 pex25d export cell.pex25d --to elmer --out_dir case
 cd case && ElmerGrid 14 2 mesh.msh -autoclean && ElmerSolver case.sif
 ```
 
 - **Output of the exporter:**
   - `case.sif`
-  - `mesh.msh` and `mesh.json`, from [klayout-pex-plugin-gmsh](https://github.com/iic-jku/klayout-pex-plugin-gmsh)
+  - `mesh.msh` and `mesh.json`, from [kpex-plugin-gmsh](https://github.com/iic-jku/kpex-plugin-gmsh)
 - **Running it:** ElmerGrid converts the mesh into the directory `mesh/`, which `case.sif` reads.
 - **Result:** `cmatrix.dat`
   - mutual capacitances off the diagonal
@@ -37,7 +37,7 @@ groups or filtered capacitance results.
 
 ## Options
 
-The mesh options of klayout-pex-plugin-gmsh, plus:
+The mesh options of kpex-plugin-gmsh, plus:
 
 | Option | Default | Meaning |
 | --- | --- | --- |
@@ -49,10 +49,15 @@ Pass them with `pex25d export --option NAME=VALUE` or `options={...}` in Python.
 
 Elements are linear. On the same mesh, the matrix matches Palace with `order` 1.
 
+## Migration
+
+Moving from `klayout-pex-plugin-elmer`? Install the renamed plugins in a fresh
+environment with `kpex>=0.12.0` to avoid registering the same exporters twice.
+
 ## Requirements
 
-- `klayout-pex>=0.10.0,<1` (plugin API `v1` is provisional)
-- `klayout-pex-plugin-gmsh>=0.2.0,<0.3`
+- `kpex>=0.12.0,<1` (plugin API `v1` is provisional)
+- `kpex-plugin-gmsh>=0.3.0,<0.4`
 
 ## Development
 
@@ -71,20 +76,20 @@ Funded by the European Union. Views and opinions expressed are however those of 
 
 <p align="center">
   <a href="https://iic.jku.at" target="_blank">
-    <img src="https://github.com/iic-jku/klayout-pex-website/raw/main/figures/funding/iic-jku.svg" alt="Johannes Kepler University: Institute for Integrated Circuits and Quantum Computing" width="300"/>
+    <img src="https://github.com/iic-jku/kpex-website/raw/main/figures/funding/iic-jku.svg" alt="Johannes Kepler University: Institute for Integrated Circuits and Quantum Computing" width="300"/>
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://silicon-austria-labs.com" target="_blank">
-    <img src="https://github.com/iic-jku/klayout-pex-website/raw/main/figures/funding/silicon-austria-labs-logo.svg" alt="Silicon Austria Labs" width="300"/>
+    <img src="https://github.com/iic-jku/kpex-website/raw/main/figures/funding/silicon-austria-labs-logo.svg" alt="Silicon Austria Labs" width="300"/>
   </a>
 </p>
 
 <p align="center">
   <a href="https://ode4ec.eu/projects/ams/" target="_blank">
-    <img src="https://github.com/iic-jku/klayout-pex-website/raw/main/figures/funding/eu-cofunded.svg" alt="Co-funded by the European Union" width="300"/>
+    <img src="https://github.com/iic-jku/kpex-website/raw/main/figures/funding/eu-cofunded.svg" alt="Co-funded by the European Union" width="300"/>
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://www.chips-ju.europa.eu" target="_blank">
-    <img src="https://github.com/iic-jku/klayout-pex-website/raw/main/figures/funding/chips-ju.png" alt="Chips Joint Undertaking" width="300"/>
+    <img src="https://github.com/iic-jku/kpex-website/raw/main/figures/funding/chips-ju.png" alt="Chips Joint Undertaking" width="300"/>
   </a>
 </p>

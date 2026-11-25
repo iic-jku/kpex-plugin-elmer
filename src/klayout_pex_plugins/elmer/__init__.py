@@ -3,8 +3,8 @@
 # SPDX-FileCopyrightText: 2026 Martin Jan Köhler and Harald Pretl
 # Johannes Kepler University, Institute for Integrated Circuits.
 #
-# This file is part of klayout-pex-plugin-elmer
-# (see https://github.com/iic-jku/klayout-pex-plugin-elmer).
+# This file is part of kpex-plugin-elmer
+# (see https://github.com/iic-jku/kpex-plugin-elmer).
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 # --------------------------------------------------------------------------------
 #
 
-"""Elmer FEM electrostatics cases from PEX25D scenes: the KLayout-PEX exporter ``elmer``."""
+"""Elmer FEM electrostatics cases from PEX25D scenes: the KPEX exporter ``elmer``."""
 
 from .exporter import ElmerExporterOptions, ElmerSceneExporter, elmer_sif
 
